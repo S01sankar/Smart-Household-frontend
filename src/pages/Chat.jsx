@@ -34,7 +34,7 @@ const Chat = () => {
   }, [messages]);
 
   const connectSocket = () => {
-    socketRef.current = io('https://smarthome-backend-6jwy.onrender.com');
+    socketRef.current = io(process.env.REACT_APP_SOCKET_URL || 'https://smarthome-backend.onrender.com');
     if (user?.householdId) {
       socketRef.current.emit('join-household', user.householdId);
     }

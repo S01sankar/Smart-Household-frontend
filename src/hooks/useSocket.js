@@ -20,7 +20,7 @@ const useSocket = () => {
     if (!user) return;
 
     // Connect to socket
-    socketRef.current = io('https://smarthome-backend-6jwy.onrender.com', {
+    socketRef.current = io(process.env.REACT_APP_SOCKET_URL || 'https://smarthome-backend.onrender.com', {
       transports: ['websocket'],
     });
 
